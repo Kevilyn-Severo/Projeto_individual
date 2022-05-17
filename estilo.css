@@ -3,9 +3,10 @@ body {
 }
 .barra {
     background-color: black;
+    border: 1px solid black;
     color: white;
     font-family: 'Times New Roman', Times, serif;
-    width: 1349px;
+    width: 1347 px;
     height: 50px;
     display: flex;
     cursor: pointer;
@@ -60,8 +61,8 @@ body {
 
 
 .cartaz{
-    height: 570px;
-    width: 1390px;
+    height: 575px;
+    width: 1369px;
     background-image: url(img/Kerfin7_NEA_2391.jpg);
     background-size: cover;
 
@@ -88,7 +89,7 @@ p{
 
 .musica{
 height: 570px;
-width: 1347px;
+width: 1345px;
 background-image: url(img/black-and-silver-microphone-on-black-background.jpg);
 background-size: cover;
 border: 2px solid gray;
@@ -118,7 +119,7 @@ align-items: flex-end;
 
 .beneficio{
     height: 570px;
-    width: 1349px;
+    width: 1345px;
     background-image: url(img/image-from-rawpixel-id-431913-jpeg.jpg);
     background-size: cover;
     border: 2px solid gray;
@@ -140,7 +141,7 @@ align-items: flex-end;
 
 .curiosidade{
     height: 780px;
-    width: 1349px;
+    width: 1345px;
     background-image: url(img/closeup-of-a-dj-working-under-the-blue-light.jpg);
     background-size: cover;
     border: 2px solid gray;
@@ -169,3 +170,35 @@ align-items: flex-end;
 }
 
 
+
+/*Login*/
+
+.login {
+    border: 2px solid #531cb3;
+    height: 400px;
+    width: 400px;
+    background-color:#42344Bff;
+    margin-left: 470px;
+    margin-top: 100px;
+    font-family: cursive;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.temaLg{
+    border: 1px solid blue;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.login input{
+    background-color: rgba(128, 128, 128, 0.863);
+    color: white;
+    height: 25px;
+    width: 350px;
+    margin-top: 20px;
+}
