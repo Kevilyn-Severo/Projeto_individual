@@ -286,13 +286,40 @@ h3{
 
 /*Sertanejo*/
 .sertanejo{
-    height: 575px;
+    height: 1060px;
     width: 1369px;
-    background-image: url(img/musical-background-g2932239c7_1920.jpg);
+    background-image: url(img/acoustic-guitar-close-up-on-a-beautiful-colored-background.jpg);
     background-size: cover;
+    color: navajowhite;
+    font-family: cursive;
 }
 
+.sertanejo h4{
+    margin-top: auto;
+    height: 5px;
+}
 
+.descrição{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nejo{
+    margin-top: 5px;
+    margin-bottom: -23px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.historia{
+    height: 934px;
+    font-size: 20px;
+    width: 1319px;
+    margin-left: 20px;
+}
 
 /*Rock*/
 .rock{
