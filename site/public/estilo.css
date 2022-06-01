@@ -395,3 +395,54 @@ h3{
     width: 1274px;
     margin-left: 34px;
 }
+
+/*Formulario*/
+.formulario{
+    height: 1000px;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.infor{
+    border: 1px solid;
+    width: 629px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 131px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.infor h3{
+    margin-top: -8px;
+    margin-left: 9px;
+}
+
+.infor h4{
+    font-size: 20px;
+}
+
+.infor input{
+    border: 0;
+    border-bottom: 1px solid;
+}
+
+#botao{
+    padding: revert;
+    font-size: 15px;
+    font-weight: bold;
+    width: 100px;
+    height: 36px;
+    color: white;
+    background-color: slategrey;
+    cursor: pointer;
+}
+
+.espaço{
+    height: 10px;
+    background-color: gray;
+}

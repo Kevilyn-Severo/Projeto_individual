@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="./js/funcoes.js"></script>
+</head>
+<body>
+    
+    <div class="barra">
+        <div class="logo">  <a href="index.html"> <img src="img/SL_123119_26540_39.jpg" width="100" height="50"></a> </div>
+        <div class="menu">
+            <ul class="lista">
+                <li>Música</li>
+                <li>Benefícios</li>
+                <li>Curiosidades</li>
+                <li><select class="genero" onchange="location=this.value;">
+                        <option value="" selected>Genero</option>
+                        <option value="sertanejo.html">Sertanejo</option>
+                        <option value="rock.html">Rock</option>
+                        <option value="reggaeton.html">Reggaeton</option>
+                    </select></li>
+            </ul>
+        </div>
+    
+        <div class="bnt">
+            <button class="clique" >  <a href="login.html" id="cd">Entrar</a></button>
+            <button class="clique"> <a href="cadastro.html" id="cd">Cadastro</a> </button>
+        </div>
+    </div>
+    
+
+    <div class="corpo">
+        <div class="cartaz">
+            <div class="cadas">
+               <div class="temaLg">CADASTRA-SE</div> 
+                Nome:
+                <input type="text" placeholder="Nome" id="nome_input">
+                Telefone:
+                <input type="text" placeholder="Telefone" id="tele_input">
+                E-mail:
+                <input id="email_input" type="text" placeholder="E-mail">
+                Senha:
+                <input id="senha_input" type="password" placeholder="Senha">
+                <button onclick="cadastrar()" class="btc"  id="bt">Cadastrar </button>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="footer">
+        <h3>Feito por uma aluna SPtech</h3>
+      <div class="redes">
+        <img src="img/instagram.png" style="width: 50px;
+        height: 50px;">
+        <img src="img/facebook.png" style="width: 50px;
+        height: 50px;">
+        <img src="img/twitter.png" style="width: 50px;
+        height: 50px;">
+      </div>  
+
+    </div>
+
+    <script>
+        function verificar() {
+          var nome = nome_input.value
+          var telefone = tele_input.value
+          var email = email_input.value
+          var senha = senha_input.value
+      
+          if (nome == ""|| telefone == ""  || email == "" || senha == "") {
+            mensagem.innerHTML = "preencha todos os campos!"
+          }
+        }
+      
+        function cadastrar() {
+          aguardar();
+      
+          //Recupere o valor da nova input pelo nome do id
+          // Agora vá para o método fetch logo abaixo
+          var nomeVar = nome_input.value;
+          var telefoneVar = tele_input.value
+          var emailVar = email_input.value;
+          var senhaVar = senha_input.value;
+          //var confirmacaoSenhaVar = confirmacao_senha_input.value;
+          
+      
+          if (nomeVar == "" || telefoneVar == "" || emailVar == "" || senhaVar == "" ) {
+            //cardErro.style.display = "block"
+            mensagem.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+      
+            finalizarAguardar();
+            return false;
+          }
+          else {
+            setInterval(sumirMensagem, 5000)
+          }
+      
+          // Enviando o valor da nova input
+          fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              nomeServer: nomeVar,
+              telefoneServer : telefoneVar,
+              emailServer: emailVar,
+              senhaServer: senhaVar,
+            })
+          }).then(function (resposta) {
+      
+            console.log("resposta: ", resposta);
+      
+            if (resposta.ok) {
+              //cardErro.style.display = "block";
+      
+              mensagem.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+      
+              setTimeout(() => {
+                window.location = "login.html";
+              }, "2000")
+      
+              limparFormulario();
+              finalizarAguardar();
+            } else {
+              throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+          }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+          });
+      
+          return false;
+        }
+      
+        function sumirMensagem() {
+          //cardErro.style.display = "none"
+        }
+      
+      </script>
