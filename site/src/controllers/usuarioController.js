@@ -66,6 +66,7 @@ function cadastrar(req, res) {
     var telefone = req.body.telefoneServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var formulario = req.body.formularioServer;
     
     
     // Faça as validações dos valores
@@ -80,7 +81,7 @@ function cadastrar(req, res) {
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, telefone, email, senha)
+        usuarioModel.cadastrar(nome, telefone, email, senha, formulario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -98,27 +99,32 @@ function cadastrar(req, res) {
     }
 }
 
-function cadastrarFuncionario(req, res) {
+function salvar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var telefone = req.body.telefoneServer;
-    var chefe = req.body.chefeServer
+    var ouvir = req.body.ouvirServer;
+    var frequencia = req.body.frequenciaServer;
+    var tipo = req.body.tipoServer;
+    var hora = req.body.horaServer;
+    var cantor = req.body.cantorServer;
+    var musica = req.body.musicaServer;
     
     // Faça as validações dos valores
-    if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (telefone == undefined) {
-        res.status(400).send("Seu telefone está undefined!");
+    if (ouvir == undefined) {
+        res.status(400).send("Se costuma ouvir música está undefined!");
+    } else if (frequencia == undefined) {
+        res.status(400).send("A frequência que escuta música está undefined!");
+    } else if (tipo == undefined) {
+        res.status(400).send("Seu tipo de música está undefined!");
+    } else if (hora == undefined) {
+        res.status(400).send("A hora que passa ouvindo música está undefined!");
+    } else if (cantor == undefined) {
+        res.status(400).send("Seu cantor favorito está undefined!");
+    } else if (musica == undefined) {
+        res.status(400).send("Sua música favorita está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarFuncionario(nome, email, senha, telefone,chefe)
+        usuarioModel.salvar(ouvir, frequencia, tipo, hora, cantor, musica)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -127,7 +133,7 @@ function cadastrarFuncionario(req, res) {
                 function (erro) {
                     console.log(erro);
                     console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        "\nHouve um erro ao realizar o formulário! Erro: ",
                         erro.sqlMessage
                     );
                     res.status(500).json(erro.sqlMessage);
@@ -136,72 +142,11 @@ function cadastrarFuncionario(req, res) {
     }
 }
 
-function cadastrarPrimeiraFazenda(req, res) {
-
-    var estado = req.body.estadoServer;
-    var cidade = req.body.cidadeServer;
-    var bairro = req.body.bairroServer;
-    var rua = req.body.ruaServer;
-    var numero = req.body.numeroServer;
-    var cep = req.body.cepServer;
-    var user = req.body.userServer;
-    
-    // Faça as validações dos valores
-    if (estado == undefined) {
-        res.status(400).send("Seu estado está undefined!");
-    } else if (rua == undefined) {
-        res.status(400).send("Sua rua está undefined!");
-    } else if (cep == undefined) {
-        res.status(400).send("Seu cep está undefined!");
-    } else if (cidade == undefined) {
-        res.status(400).send("Sua cidade está undefined!");
-    } else if (bairro == undefined){
-        res.status(400).send("Seu bairro está undefined!");
-    } else if (numero == undefined){
-        res.status(400).send("Seu numero está undefined!");
-    } else {
-        
-        usuarioModel.cadastrarPrimeiraFazenda(estado, cidade, bairro, rua, numero, cep, user)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-}
-function cadastrarNovaFazenda(req, res) {
-    var user = req.body.userServer;
-        
-        usuarioModel.cadastrarNovaFazenda(user)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-function obterdadosfuncionario(req, res) {
+function obterdadosformulario(req, res) {
 
     var idUsuario = req.params.idSession;
 
-    usuarioModel.obterdadosfuncionario(idUsuario).then(function (resultado) {
+    usuarioModel.obterdadosformulario(idUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -209,54 +154,17 @@ function obterdadosfuncionario(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        console.log("Houve um erro ao buscar as ultimas informações.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
-function obterdadosfazenda(req, res) {
 
-    var idUsuario = req.params.idSession;
-
-    usuarioModel.obterdadosfazenda(idUsuario).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
     
-}
-function cadastrarSensores(req,res){
-    var qtd_sensores = req.body.qtd_sensoresServer;
-    usuarioModel.cadastrarSensores(qtd_sensores)
-          /*   .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\ndeu erro!!",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            ); */
-    }
 module.exports = {
     entrar,
     cadastrar,
-    cadastrarFuncionario,
-    cadastrarNovaFazenda,
-    cadastrarPrimeiraFazenda,
-    obterdadosfuncionario,
-    obterdadosfazenda,
-    cadastrarSensores,
+    salvar,
+    obterdadosformulario,
     listar,
     testar
 }

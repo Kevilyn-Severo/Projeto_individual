@@ -43,6 +43,7 @@
                 <input id="senha_input" placeholder="Senha">
                 <button onclick="entrar()" class="btl">Login</button>
             </div>
+            <div id="mensagem" ></div> 
         </div>
     
     </div>
@@ -113,10 +114,10 @@
                     sessionStorage.NOME_USUARIO = json.Nome;
                     sessionStorage.ID_USUARIO = json.idUsuario;
                   
-                    if(json.fkChefe == null){
+                    if(json.fkFormulario == null){
                       sessionStorage.ADM = -1
                     }else{
-                      sessionStorage.ADM = json.fkChefe
+                      sessionStorage.ADM = json.fkFormulario
                     }
                     
                     //console.log(sessionStorage.ADM)

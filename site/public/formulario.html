@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
     <link rel="stylesheet" href="estilo.css">
+    <script src="./js/funcoes.js"></script>
 </head>
 <body>
     
@@ -70,7 +71,9 @@
         </div>
 <br>
         <button onclick="salvar()" id="botao">Enviar</button>
+        <div id="mensagem" ></div> 
     </div>
+
        <div class="espaço"> </div>
     <div class="footer">
         <h3>Feito por uma aluna SPtech</h3>
@@ -84,3 +87,109 @@
       </div>  
 
     </div>
+
+    <script>
+        function verificar(){
+            var ouvir= ouvir_input.value
+            var frequencia =frequencia_input.value
+            var tipo= tipo_input.value
+            var hora= hora_input.value
+            var cantor= cantor_input.value
+            var musica= musica_input.value
+
+            if (tipo == "" || hora == "" || cantor== "" || musica== "") {
+            mensagem.innerHTML = "preencha todos os campos!"
+        }
+        }
+
+        function salvar() {
+          aguardar();
+      
+          //Recupere o valor da nova input pelo nome do id
+          // Agora vá para o método fetch logo abaixo
+          var ouvirVar= ouvir_input.value;
+          var frequenciaVar =frequencia_input.value;
+          var tipoVar= tipo_input.value;
+          var horaVar= hora_input.value
+          var cantorVar= cantor_input.value
+          var musicaVar= musica_input.value
+          //var confirmacaoSenhaVar = confirmacao_senha_input.value;
+          
+      
+          if (ouvirVar == "" || frequenciaVar == "" || tipoVar == "" || horaVar == "" || cantorVar == "" || musicaVar == "") {
+            //cardErro.style.display = "block"
+            mensagem.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+      
+            finalizarAguardar();
+            return false;
+          }
+          else {
+            setInterval(sumirMensagem, 5000)
+          }
+      
+          // Enviando o valor da nova input
+          fetch("/usuarios/salvar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              ouvirServer: ouvirVar,
+              frequenciaServer : frequenciaVar,
+              tipoServer: tipoVar,
+              horaServer: horaVar,
+              cantorServer: cantorVar,
+              musicaServer: musicaVar,
+            })
+          }).then(function (resposta) {
+      
+            console.log("resposta: ", resposta);
+      
+            if (resposta.ok) {
+              //cardErro.style.display = "block";
+      
+              mensagem.innerHTML = "Salvo com sucesso! Redirecionando para tela da conta...";
+      
+              setTimeout(() => {
+                window.location = "login.html";
+              }, "2000")
+      
+              limparFormulario();
+              finalizarAguardar();
+            } else {
+              throw ("Houve um erro ao tentar salvar o formulário!");
+            }
+          }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+          });
+      
+          return false;
+        }
+      
+        function sumirMensagem() {
+          //cardErro.style.display = "none"
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
