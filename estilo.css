@@ -325,9 +325,9 @@ h3{
 .rock{
     height:  730px;
     width: 1369px;
-    background-image: url(img/rock.jfif);
+    background-image: url(img/1117.jpg);
     background-size: cover;
-    color: white;
+    color: aliceblue;
     font-family: cursive;
     
 }
@@ -346,6 +346,11 @@ h3{
     height: 125px;
 }
 
+.entreterimento{
+    width: 1298px;
+    margin-left: 20px;
+}
+
 .gif{
     width: 110px;
     height: 122px;
@@ -361,4 +366,32 @@ h3{
 
 .separação{
     border: 1px solid gray;
+}
+
+/*Reggaeton*/
+.reggeaton{
+    height:  615px;
+    width: 1369px;
+    background-image: url(img/3425171.jpg);
+    background-size: cover;
+    font-family: cursive;
+    color: white;
+}
+
+.america{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.america h1{
+    display: flex;
+    justify-content: center;
+}
+
+.latina{
+    height: 500px;
+    font-size: 21px;
+    width: 1274px;
+    margin-left: 34px;
 }
