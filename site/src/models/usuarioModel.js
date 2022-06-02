@@ -34,14 +34,14 @@ function salvar(ouvir, frequencia, tipo, hora, cantor, musica) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
 
     var instrucao = `
-        INSERT INTO Formulario (Ouvir, frequencia, tipo, hora, cantor, musica, dtCriacao, dtAtualizacao) VALUES ('${ouvir}', '${frequencia}', '${tipo}', '${hora}' , '${cantor}', '${musica}');
+        INSERT INTO Formulario (ouvir, frequencia, tipo, hora, cantor, musica) VALUES ('${ouvir}', '${frequencia}', '${tipo}', '${hora}' , '${cantor}', '${musica}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
 
-function obterdadosfuncionario(idUsuario) {
+function obterdadosformulario(idFormulario) {
 
     instrucaoSql = ''
 
@@ -49,12 +49,12 @@ function obterdadosfuncionario(idUsuario) {
         instrucaoSql = `select Nome, idUsuario,
                         Email
                     from Usuario
-                    where fkFormulario = ${idUsuario}`;
+                    where fkFormulario = ${idFormulario}`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select Nome, idUsuario,
                         Email
                     from Usuario
-                    where fkFormulario = ${idUsuario}`;
+                    where fkFormulario = ${idFormulario}`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

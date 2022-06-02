@@ -446,3 +446,54 @@ h3{
     height: 10px;
     background-color: gray;
 }
+
+/*Gosto Musical*/
+
+.gosto{
+    height:  615px;
+    width: 1349px;
+    background-image: url(img/padrao-de-notas-musicais-em-fundo-preto_1017-32303.jpg);
+    background-size: cover;
+    font-family: cursive;
+    color: white;
+    border: 0;
+    border-top: 1px solid red;
+}
+
+.gosto h1{
+    display: flex;
+    justify-content: center;
+}
+
+.pesquisa{
+    width: 1100px;
+    margin: auto;
+    font-size: 18px;
+}
+
+.teste{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    height: 204px;
+    margin-top: 23px;
+    font-size: 20px;
+}
+
+.teste button{
+    font-weight: bold;
+    width: 93px;
+    /* height: 151px; */
+    font-size: 15px;
+}
+
+.teste select{
+    width:130px ;
+}
+
+#music{
+    list-style: none;
+    color: white;
+    text-decoration-style: none;
+}
