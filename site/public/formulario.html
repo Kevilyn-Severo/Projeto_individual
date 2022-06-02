@@ -114,6 +114,8 @@
             setInterval(sumirMensagem, 5000)
           }
       
+          localStorage.setItem("formulario", "horasOuvindo");
+
           // Enviando o valor da nova input
           fetch("/usuarios/salvar", {
             method: "POST",
