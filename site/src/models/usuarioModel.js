@@ -30,11 +30,11 @@ function cadastrar(nome, telefone, email, senha, formulario) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function salvar(ouvir, frequencia, tipo, hora, cantor, musica) {
+function salvar(ouvir, frequencia, tipo, hora) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
 
     var instrucao = `
-        INSERT INTO Formulario (ouvir, frequencia, tipo, hora, cantor, musica) VALUES ('${ouvir}', '${frequencia}', '${tipo}', '${hora}' , '${cantor}', '${musica}');
+        INSERT INTO Formulario (ouvir, frequencia, tipo, hora, cantor, musica) VALUES ('${ouvir}', '${frequencia}', '${tipo}', '${hora}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

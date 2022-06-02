@@ -105,8 +105,6 @@ function salvar(req, res) {
     var frequencia = req.body.frequenciaServer;
     var tipo = req.body.tipoServer;
     var hora = req.body.horaServer;
-    var cantor = req.body.cantorServer;
-    var musica = req.body.musicaServer;
     
     // Faça as validações dos valores
     if (ouvir == undefined) {
@@ -117,14 +115,10 @@ function salvar(req, res) {
         res.status(400).send("Seu tipo de música está undefined!");
     } else if (hora == undefined) {
         res.status(400).send("A hora que passa ouvindo música está undefined!");
-    } else if (cantor == undefined) {
-        res.status(400).send("Seu cantor favorito está undefined!");
-    } else if (musica == undefined) {
-        res.status(400).send("Sua música favorita está undefined!");
-    } else {
+    } else{
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.salvar(ouvir, frequencia, tipo, hora, cantor, musica)
+        usuarioModel.salvar(ouvir, frequencia, tipo, hora)
             .then(
                 function (resultado) {
                     res.json(resultado);

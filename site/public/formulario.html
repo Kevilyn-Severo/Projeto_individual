@@ -47,22 +47,18 @@
 
         <div class="infor">
             <h4>Que tipo de música você gosta?</h4>
-            <input type="text"  id="tipo_input" placeholder="Sua resposta">
+            <select  id="tipo_select">
+              <option value="">Seleciona</option>
+              <option value="1">Sertanejo</option>
+              <option value="2">Rock</option>
+              <option value="3">Reggaeton</option>
+
+            </select>
         </div>
 <br>
         <div class="infor">
             <h4>Quantas horas você passa ouvindo música?</h4>
             <input type="text"  id="hora_input" placeholder="Sua resposta">
-        </div>
-<br>
-        <div class="infor">
-            <h4>Cantor favorito?</h4>
-            <input type="text"  id="cantor_input" placeholder="Sua resposta">
-        </div>
-<br>
-        <div class="infor">
-            <h4>Música favorita?</h4>
-            <input type="text"  id="musica_input" placeholder="Sua resposta">
         </div>
 <br>
         <button onclick="salvar()" id="botao">Enviar</button>
@@ -87,12 +83,10 @@
         function verificar(){
             var ouvir= ouvir_input.value
             var frequencia =frequencia_input.value
-            var tipo= tipo_input.value
+            var tipo= tipo_select.value
             var hora= hora_input.value
-            var cantor= cantor_input.value
-            var musica= musica_input.value
 
-            if (tipo == "" || hora == "" || cantor== "" || musica== "") {
+            if (ouvir== "" || frequencia== "" || tipo == "" || hora == "") {
             mensagem.innerHTML = "preencha todos os campos!"
         }
         }
@@ -105,13 +99,11 @@
           var ouvirVar= ouvir_input.value;
           var frequenciaVar =frequencia_input.value;
           var tipoVar= tipo_input.value;
-          var horaVar= hora_input.value
-          var cantorVar= cantor_input.value
-          var musicaVar= musica_input.value
+          var horaVar= hora_input.value;
           //var confirmacaoSenhaVar = confirmacao_senha_input.value;
           
       
-          if (ouvirVar == "" || frequenciaVar == "" || tipoVar == "" || horaVar == "" || cantorVar == "" || musicaVar == "") {
+          if (ouvirVar == "" || frequenciaVar == "" || tipoVar == "" || horaVar == "") {
             //cardErro.style.display = "block"
             mensagem.innerHTML = "(Mensagem de erro para todos os campos em branco)";
       
@@ -135,8 +127,6 @@
               frequenciaServer : frequenciaVar,
               tipoServer: tipoVar,
               horaServer: horaVar,
-              cantorServer: cantorVar,
-              musicaServer: musicaVar,
             })
           }).then(function (resposta) {
       
@@ -147,9 +137,13 @@
       
               mensagem.innerHTML = "Salvo com sucesso! Redirecionando para tela da conta...";
       
-              setTimeout(() => {
-                window.location = "login.html";
-              }, "2000")
+              setTimeout(() => { if (tipoServer == '1'){
+                window.location = "sertanejo.html";
+                } else if(tipoServer == '2'){
+                 window.location  = "rock.html";
+                } else{
+                 window.location  = "reggaeton.html";
+             } }, "2000")
       
               limparFormulario();
               finalizarAguardar();
