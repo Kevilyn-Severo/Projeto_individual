@@ -323,13 +323,14 @@ h3{
 
 /*Rock*/
 .rock{
-    height:  730px;
+    height:  1010px;
     width: 1369px;
-    background-image: url(img/1117.jpg);
+    background-image: url(img/RockN\'Roll\ &\ Art\ \(1\).jpg);
     background-size: cover;
-    color: aliceblue;
+    font-weight: 600;
+    color: lightyellow;
     font-family: cursive;
-    
+    font-size: 20px;
 }
 
 .rock h1{
