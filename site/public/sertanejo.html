@@ -92,6 +92,73 @@
                 artistas já se destacaram nessa fase, por exemplo, Gusttavo Lima, Michel Teló, Luan Santana e Marília
                 Mendonça.
             </div>
+
+            <div class="ranki">
+                <h2>Monte o seu Ranking</h2>
+            </div>
+                        <div class="class">
+                          <div class="geral">
+                            <h3>Digite os seus 5 cantores favoritos</h3>
+                            <table class="tabela" >
+                                        <th class="forma" id="cantor_td">Cantores favoritos</th>
+                                    
+                                    <tr>
+                                        <td class="forma" id="cantor_td"> </td>
+                                    </tr>
+                                    <tr> 
+                                        <td class="forma" id="cantor_td">  </td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="forma" id="cantor_td"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="forma" id="cantor_td"> </td>
+                                    </tr>
+                                    <tr>   
+                                     <td class="forma" id="cantor_td"> </td>
+                                    </tr>
+                                 </table> 
+                        <br>
+                        <input type="text" id="cantores_input" placeholder="Cantores">
+                        <br>
+                        <button onclick="enviar()">Cadastrar</button>
+                        </div>
+            
+            
+            <div>
+            
+            
+            
+            </div>
+            <div class="geral">
+                <h3>Digite as suas 5 músicas favoritas</h3>
+                <table class="tabela" id="cor">
+                    <th class="forma" id="music_td">Músicas favoritas</th>
+            
+                    <tr>
+                        <td class="forma" id="music_td">dfdffd</td>
+                    </tr>
+                    <tr>
+                        <td class="forma" id="music_td">klnsdvsdv</td>
+                    </tr>
+                    <tr>
+                        <td class="forma" id="music_td">njofnvof</td>
+                    </tr>
+                    <tr>
+                        <td class="forma" id="music_td">vmodnviod</td>
+                    </tr>
+                    <tr>
+                        <td class="forma" id="music_td">vmodvniVNF</td>
+                    </tr>
+                </table>
+                <br>
+                <input type="text" id="mus_input" placeholder="Músicas">
+                <br>
+                <button onclick="memorizar()">Cadastrar</button>
+            </div>
+            </div>
+
+
         </div>
     
     </div>
@@ -117,3 +184,57 @@
       </div>  
 
     </div>
+
+
+
+    <script>
+var lista_de_cantor = []
+var lista_de_musica = []
+        function enviar() {
+            var cantores = cantores_input.value
+            lista_de_cantor.push(cantores)
+            cantor_td.innerHTML=``
+
+            for (var contador = 0; contador<=length; contador++){
+                cantor_td.innerHTML+=`${lista_de_cantor[contador]} <br>`
+            }
+        }
+
+        var cantorVar = cantores 
+        fetch("/usuarios/enviar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              cantorServer: cantorVar,
+            })
+          })
+
+
+        function memorizar() {
+            var musicas = mus_input.value
+            lista_de_musica.push(musicas)
+            music_td.innerHTML=``
+
+            for (var contador = 0; contador<=length; contador++){
+                music_td.innerHTML+=`${lista_de_musica[contador]} <br>`
+            }
+        }
+         
+        var musicaVar= musicas
+        fetch("/usuarios/memorizar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              musicaServer: musicaVar,
+            })
+          })
+
+    </script>

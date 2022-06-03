@@ -286,7 +286,7 @@ h3{
 
 /*Sertanejo*/
 .sertanejo{
-    height: 1060px;
+    height: 1591px;
     width: 1369px;
     background-image: url(img/acoustic-guitar-close-up-on-a-beautiful-colored-background.jpg);
     background-size: cover;
@@ -321,9 +321,18 @@ h3{
     margin-left: 20px;
 }
 
+#cantor_td{
+    color: navajowhite;
+}
+
+#music_td{
+    color: navajowhite;
+}
+
 /*Rock*/
 .rock{
-    height:  1010px;
+    height:  1512px;
+
     width: 1369px;
     background-image: url(img/RockN\'Roll\ &\ Art\ \(1\).jpg);
     background-size: cover;

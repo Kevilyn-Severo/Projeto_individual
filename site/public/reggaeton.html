@@ -160,16 +160,52 @@
 
     <script>
         var lista_de_cantor = []
+        var lista_de_cantor = []
         function amazenar() {
             var cantores = cantores_input.value
             lista_de_cantor.push(cantores)
             cantor_td.innerHTML=``
 
-            for (var contador = 0; contador>=length; contador++){
+            for (var contador = 0; contador<=length; contador++){
                 cantor_td.innerHTML+=`${lista_de_cantor[contador]} <br>`
             }
         }
 
+        var cantorVar = cantores_input.value
+        fetch("/usuarios/amazenar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              cantorServer: cantorVar,
+            })
+          })
 
+
+        function preservar() {
+            var musicas = mus_input.value
+            lista_de_musica.push(musicas)
+            music_td.innerHTML=``
+
+            for (var contador = 0; contador<=length; contador++){
+                music_td.innerHTML+=`${lista_de_musica[contador]} <br>`
+            }
+        }
+
+  var musicaVar= musicas
+        fetch("/usuarios/preservar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              musicaServer: musicaVar,
+            })
+          })
 
     </script>
