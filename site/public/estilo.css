@@ -371,12 +371,12 @@ h3{
 
 /*Reggaeton*/
 .reggeaton{
-    height:  615px;
+    height:  1105px;
     width: 1369px;
-    background-image: url(img/3425171.jpg);
+    background-image: url(img/Quarto\ da\ parede\ de\ tijolo\ da\ luz\ de\ néon\ _\ Vetor\ Premium.jfif);
     background-size: cover;
     font-family: cursive;
-    color: white;
+    color: black;
 }
 
 .america{
@@ -392,7 +392,7 @@ h3{
 
 .latina{
     height: 500px;
-    font-size: 21px;
+    font-size: 22px;
     width: 1274px;
     margin-left: 34px;
 }
@@ -497,4 +497,51 @@ h3{
     list-style: none;
     color: white;
     text-decoration: none;
+}
+
+/*tabela*/
+
+.geral{
+    
+    width: 342px;
+    height: 404px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.class{
+    
+    height: 418px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.tabela{
+border: 3px solid;
+height: 50px;
+}
+
+
+.forma{
+    height: 28px;
+    font-size: 20px;
+    width: 203px;
+    color: black;
+    display: flex;
+}
+
+.ranki h2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.geral input{
+    border: 2px solid;
+}
+
+.geral button{
+    font-weight: bold;
+    width: 104px;
 }
