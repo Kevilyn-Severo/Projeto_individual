@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reggaeton: uma breve história</title>
     <link rel="stylesheet" href="estilo.css">
+  
 </head>
 <body>
     
@@ -78,28 +79,17 @@
               <div class="geral">
                 <h3>Digite os seus 5 cantores favoritos</h3>
                 <table class="tabela">
-                            <th class="forma">Cantores favoritos</th>
+                    <thead>
+                        <th class="forma">Cantores favoritos</th>
+                    </thead>
+                    <tbody id="cantores_tbody">
                         
-                        <tr>
-                            <td class="forma" id="cantor_td"> </td>
-                        </tr>
-                        <tr> 
-                            <td class="forma" id="cantor_td">  </span></td> 
-                        </tr>
-                        <tr>
-                            <td class="forma" id="cantor_td"> </td>
-                        </tr>
-                        <tr>
-                            <td class="forma" id="cantor_td"> </td>
-                        </tr>
-                        <tr>   
-                         <td class="forma" id="cantor_td"> </td>
-                        </tr>
-                     </table> 
+                    </tbody>                       
+                </table> 
             <br>
             <input type="text" id="cantores_input" placeholder="Cantores">
             <br>
-            <button onclick="amazenar()">Cadastrar</button>
+            <button onclick="memorizar()">Cadastrar</button>
             </div>
 
 
@@ -156,56 +146,28 @@
       </div>  
 
     </div>
+
+</body>
   
 
     <script>
         var lista_de_cantor = []
-        var lista_de_cantor = []
-        function amazenar() {
-            var cantores = cantores_input.value
-            lista_de_cantor.push(cantores)
-            cantor_td.innerHTML=``
+        var lista_de_musica = []
+        function memorizar() {
+            console.log('funcao memorizar')
+            var cantorVar = cantores_input.value
+            lista_de_cantor.push(cantorVar)
+            cantores_tbody.innerHTML=``
 
-            for (var contador = 0; contador<=length; contador++){
-                cantor_td.innerHTML+=`${lista_de_cantor[contador]} <br>`
+            for (var contador = 0; contador < lista_de_cantor.length; contador++){
+                cantores_tbody.innerHTML += `
+                <tr>   
+                    <td class="forma">
+                        ${lista_de_cantor[contador]}
+                    </td>
+                </tr>
+                `
             }
         }
-
-        var cantorVar = cantores_input.value
-        fetch("/usuarios/amazenar", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              // crie um atributo que recebe o valor recuperado aqui
-              // Agora vá para o arquivo routes/usuario.js
-              cantorServer: cantorVar,
-            })
-          })
-
-
-        function preservar() {
-            var musicas = mus_input.value
-            lista_de_musica.push(musicas)
-            music_td.innerHTML=``
-
-            for (var contador = 0; contador<=length; contador++){
-                music_td.innerHTML+=`${lista_de_musica[contador]} <br>`
-            }
-        }
-
-  var musicaVar= musicas
-        fetch("/usuarios/preservar", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              // crie um atributo que recebe o valor recuperado aqui
-              // Agora vá para o arquivo routes/usuario.js
-              musicaServer: musicaVar,
-            })
-          })
 
     </script>

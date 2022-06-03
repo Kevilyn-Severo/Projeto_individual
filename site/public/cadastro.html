@@ -35,7 +35,7 @@
                 Nome:
                 <input type="text" placeholder="Nome" id="nome_input">
                 Telefone:
-                <input type="text" placeholder="Telefone" id="tele_input">
+                <input type="text" placeholder="Telefone" id="tele_input" maxlenght="11">
                 E-mail:
                 <input id="email_input" type="text" placeholder="E-mail">
                 Senha:
@@ -69,6 +69,10 @@
       
           if (nome == ""|| telefone == ""  || email == "" || senha == "") {
             mensagem.innerHTML = "preencha todos os campos!"
+          }
+        
+          if( email.indexOf("@") && email.indexOf(.com)) {
+            mensagem.innerHTML= "Email inválido!"
           }
         }
       

@@ -121,7 +121,7 @@
                         <br>
                         <input type="text" id="cantores_input" placeholder="Cantores">
                         <br>
-                        <button onclick="enviar()">Cadastrar</button>
+                        <button onclick="memorizar()">Cadastrar</button>
                         </div>
             
             
@@ -154,7 +154,7 @@
                 <br>
                 <input type="text" id="mus_input" placeholder="Músicas">
                 <br>
-                <button onclick="memorizar()">Cadastrar</button>
+                <button onclick="preservar()">Cadastrar</button>
             </div>
             </div>
 
@@ -190,7 +190,7 @@
     <script>
 var lista_de_cantor = []
 var lista_de_musica = []
-        function enviar() {
+        function memorizar() {
             var cantores = cantores_input.value
             lista_de_cantor.push(cantores)
             cantor_td.innerHTML=``
@@ -201,7 +201,7 @@ var lista_de_musica = []
         }
 
         var cantorVar = cantores 
-        fetch("/usuarios/enviar", {
+        fetch("/usuarios/memorizar", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -214,7 +214,7 @@ var lista_de_musica = []
           })
 
 
-        function memorizar() {
+        function preservar() {
             var musicas = mus_input.value
             lista_de_musica.push(musicas)
             music_td.innerHTML=``
@@ -225,7 +225,7 @@ var lista_de_musica = []
         }
          
         var musicaVar= musicas
-        fetch("/usuarios/memorizar", {
+        fetch("/usuarios/preservar", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"

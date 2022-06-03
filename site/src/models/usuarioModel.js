@@ -25,7 +25,7 @@ function cadastrar(nome, telefone, email, senha, formulario) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO Usuario (Nome, Telefone, Email, Senha, Formulario) VALUES ('${nome}', '${telefone}', '${email}', '${senha}', ${formulario},1);
+        INSERT INTO Usuario (Nome, Telefone, Email, Senha, fkFormulario) VALUES ('${nome}', '${telefone}', '${email}', '${senha}',1);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -39,6 +39,26 @@ function salvar(ouvir, frequencia, tipo, hora) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function memorizar(cantor) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function memorizar():", null, cantorFavor, null);
+
+    var instrucao = `
+        INSERT INTO genero (idGenero,cantorFavo,generoFavo) VALUES (null,'${cantor}',null );
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function preservar(musica) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function preservar():", null, musicaFavo, null);
+
+    var instrucao = `
+        INSERT INTO genero (idGenero,musicaFavorita,generoFavo) VALUES (null,'${musica}',null );
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 
 
 function obterdadosformulario(idFormulario) {
@@ -70,6 +90,8 @@ module.exports = {
     entrar,
     cadastrar,
     salvar,
+    memorizar,
+    preservar,
     obterdadosformulario,
     listar,
 };

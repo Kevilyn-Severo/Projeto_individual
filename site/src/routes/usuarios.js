@@ -19,6 +19,13 @@ router.post("/salvar", function (req, res) {
     usuarioController.salvar(req, res);
 });
 
+router.post("/preservar", function (req, res) {
+    usuarioController.preservar(req, res);
+
+});
+router.post("/memorizar", function (req, res) {
+    usuarioController.memorizar(req, res);
+});
 
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
