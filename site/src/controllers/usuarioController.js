@@ -66,7 +66,6 @@ function cadastrar(req, res) {
     var telefone = req.body.telefoneServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var formulario = req.body.formularioServer;
     
     
     // Faça as validações dos valores
@@ -81,7 +80,7 @@ function cadastrar(req, res) {
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, telefone, email, senha, formulario)
+        usuarioModel.cadastrar(nome, telefone, email, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -105,7 +104,8 @@ function salvar(req, res) {
     var frequencia = req.body.frequenciaServer;
     var tipo = req.body.tipoServer;
     var hora = req.body.horaServer;
-    
+    var usuario = req.body.usuarioServer
+
     // Faça as validações dos valores
     if (ouvir == undefined) {
         res.status(400).send("Se costuma ouvir música está undefined!");
@@ -118,7 +118,7 @@ function salvar(req, res) {
     } else{
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.salvar(ouvir, frequencia, tipo, hora)
+        usuarioModel.salvar(ouvir, frequencia, tipo, hora, usuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -137,72 +137,6 @@ function salvar(req, res) {
 }
 
 
-
-function preservar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var musica = req.body.musicaServer;
-    
-    // Faça as validações dos valores
-  /*  if (ouvir == undefined) {
-        res.status(400).send("Se costuma ouvir música está undefined!");
-    } else if (frequencia == undefined) {
-        res.status(400).send("A frequência que escuta música está undefined!");
-    } else if (tipo == undefined) {
-        res.status(400).send("Seu tipo de música está undefined!");
-    } else if (hora == undefined) {
-        res.status(400).send("A hora que passa ouvindo música está undefined!");
-    } else{ */
-        
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.preservar(musica)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-
-function memorizar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var cantor = req.body.cantorServer;
-    
-    // Faça as validações dos valores
-   /* if (ouvir == undefined) {
-        res.status(400).send("Se costuma ouvir música está undefined!");
-    } else if (frequencia == undefined) {
-        res.status(400).send("A frequência que escuta música está undefined!");
-    } else if (tipo == undefined) {
-        res.status(400).send("Seu tipo de música está undefined!");
-    } else if (hora == undefined) {
-        res.status(400).send("A hora que passa ouvindo música está undefined!");
-    } else{ */
-        
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.memorizar(cantor)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
 
 
 
@@ -231,8 +165,6 @@ module.exports = {
     entrar,
     cadastrar,
     salvar,
-    preservar,
-    memorizar,
     obterdadosformulario,
     listar,
     testar

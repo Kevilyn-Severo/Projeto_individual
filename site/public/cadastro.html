@@ -35,14 +35,14 @@
                 Nome:
                 <input type="text" placeholder="Nome" id="nome_input">
                 Telefone:
-                <input type="text" placeholder="Telefone" id="tele_input" maxlenght="11">
+                <input type="text" placeholder="Telefone" id="tele_input" maxlength="11">
                 E-mail:
                 <input id="email_input" type="text" placeholder="E-mail">
                 Senha:
                 <input id="senha_input" type="password" placeholder="Senha">
                 <button onclick="cadastrar()" class="btc"  id="bt">Cadastrar </button>
             </div>
-            <div id="mensagem" ></div>
+            <div id="mensagem" > gjdjshs  </div>
         </div>
     
     </div>
@@ -61,34 +61,21 @@
     </div>
 
     <script>
-        function verificar() {
-          var nome = nome_input.value
-          var telefone = tele_input.value
-          var email = email_input.value
-          var senha = senha_input.value
-      
-          if (nome == ""|| telefone == ""  || email == "" || senha == "") {
-            mensagem.innerHTML = "preencha todos os campos!"
-          }
-        
-          if( email.indexOf("@") && email.indexOf(.com)) {
-            mensagem.innerHTML= "Email inválido!"
-          }
-        }
-      
+       
         function cadastrar() {
           aguardar();
       
           //Recupere o valor da nova input pelo nome do id
           // Agora vá para o método fetch logo abaixo
           var nomeVar = nome_input.value;
-          var telefoneVar = tele_input.value
+          var telefoneVar = tele_input.value;
           var emailVar = email_input.value;
           var senhaVar = senha_input.value;
           //var confirmacaoSenhaVar = confirmacao_senha_input.value;
           
-      
-          if (nomeVar == "" || telefoneVar == "" || emailVar == "" || senhaVar == "" ) {
+          if( emailVar.indexOf("@") -1 == false && emailVar.endsWith(".com") == flase) {
+            mensagem.innerHTML= "Email inválido!"
+          } else if (nomeVar == "" || telefoneVar == "" || emailVar == "" || senhaVar == "" ) {
             //cardErro.style.display = "block"
             mensagem.innerHTML = "(Mensagem de erro para todos os campos em branco)";
       
@@ -109,7 +96,7 @@
               // crie um atributo que recebe o valor recuperado aqui
               // Agora vá para o arquivo routes/usuario.js
               nomeServer: nomeVar,
-              telefoneServer : telefoneVar,
+              telefoneServer: telefoneVar,
               emailServer: emailVar,
               senhaServer: senhaVar,
             })

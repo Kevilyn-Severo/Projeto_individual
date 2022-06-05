@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,73 +9,85 @@
     <link rel="stylesheet" href="estilo.css">
     <script src="./js/funcoes.js"></script>
 </head>
+
 <body>
-    
+
     <div class="barra">
-        <div class="logo">   <a href="index.html"><img src="img/SL_123119_26540_39.jpg" width="100" height="50"></a>  </div>
+        <div class="logo"> <a href="index.html"><img src="img/SL_123119_26540_39.jpg" width="100" height="50"></a>
+        </div>
         <div class="menu">
             <ul class="lista">
-                <a href="#musica_div" id="music"><li>Música</li></a>  
-                <a href="#beneficios_div" id="music"><li>Benefícios</li></a>
-                <a href="#curiosidade_div" id="music"><li>Curiosidades</li></a> 
+                <a href="#musica_div" id="music">
+                    <li>Música</li>
+                </a>
+                <a href="#beneficios_div" id="music">
+                    <li>Benefícios</li>
+                </a>
+                <a href="#curiosidade_div" id="music">
+                    <li>Curiosidades</li>
+                </a>
                 <li>Gosto musical</li>
             </ul>
         </div>
-    
+
         <div class="bnt">
-            <button class="clique" > <a href="login.html" id="cd">Entrar</a>  </button>
+            <button class="clique"> <a href="login.html" id="cd">Entrar</a> </button>
             <button class="clique"> <a href="cadastro.html" id="cd">Cadastro</a> </button>
         </div>
     </div>
-    
+
 
     <div class="gosto">
-            <h1>Gosto musical "define personalidade", diz estudo</h1>
+        <h1>Gosto musical "define personalidade", diz estudo</h1>
 
         <div class="pesquisa">
-            É o que afirma o professor Adrian North, da universidade escocesa Heriot-Watt, que estuda os vínculos entre as
+            É o que afirma o professor Adrian North, da universidade escocesa Heriot-Watt, que estuda os vínculos entre
+            as
             personalidades das pessoas e o tipo de música que gostam de ouvir.
-            
-            “As pessoas frequentemente definem seu senso de identidade por seu gosto musical, as roupas que vestem, pelo fato de
+
+            “As pessoas frequentemente definem seu senso de identidade por seu gosto musical, as roupas que vestem, pelo
+            fato de
             frequentar determinados pubs e usar certos tipos de gíria”, disse ele.
-            
+
             “Assim, não surpreende que a personalidade também guarde relação com os gostos musicais.”
-            
-            Em um estudo que, segundo North, é o maior já realizado sobre a personalidade e as preferências musicais de indivíduos,
-            pesquisadores pediram a 36.518 pessoas de todo o mundo que classificassem suas preferências entre 104 estilos musicais,
+
+            Em um estudo que, segundo North, é o maior já realizado sobre a personalidade e as preferências musicais de
+            indivíduos,
+            pesquisadores pediram a 36.518 pessoas de todo o mundo que classificassem suas preferências entre 104
+            estilos musicais,
             antes de fazer um teste de personalidade.
         </div>
 
-            <div class="teste">
-                <h2>Teste de personalidade</h2>
-                Escolha um gênero <br>
-                <select  id="genero_select">
-                    <option value=""></option>
-                    <option value="1">Clássica</option>
-                    <option value="2">Pop</option>
-                    <option value="3">Heavy metal</option>
-                    <option value="4">Soul</option>
-                    <option value="5">Sertanejo</option>
-                    <option value="6">Jazz</option>
-                    <option value="7">Rap</option>
-                </select>
+        <div class="teste">
+            <h2>Teste de personalidade</h2>
+            Escolha um gênero <br>
+            <select id="genero_select">
+                <option value=""></option>
+                <option value="1">Clássica</option>
+                <option value="2">Pop</option>
+                <option value="3">Heavy metal</option>
+                <option value="4">Soul</option>
+                <option value="5">Sertanejo</option>
+                <option value="6">Jazz</option>
+                <option value="7">Rap</option>
+            </select>
             <br>
             <button onclick="mostrar()">Mostrar</button>
             <br>
             <div id="frase" style="color: red;"></div>
-            </div>
+        </div>
     </div>
 
     <div class="footer">
         <h3>Feito por uma aluna SPtech</h3>
-      <div class="redes">
-        <img src="img/instagram.png" style="width: 50px;
+        <div class="redes">
+            <img src="img/instagram.png" style="width: 50px;
         height: 50px;">
-        <img src="img/facebook.png" style="width: 50px;
+            <img src="img/facebook.png" style="width: 50px;
         height: 50px;">
-        <img src="img/twitter.png" style="width: 50px;
+            <img src="img/twitter.png" style="width: 50px;
         height: 50px;">
-      </div>  
+        </div>
 
     </div>
 
@@ -83,19 +96,19 @@
         function mostrar() {
             var genero = genero_select.value
             if (genero == '1') {
-                frase.innerHTML=(`Os fãs da música clássica são pessoas criativos`)
+                frase.innerHTML = (`Os fãs da música clássica são pessoas criativos`)
             } else if (genero == '2') {
-                frase.innerHTML=(`Os amantes do pop são pessoas que trabalham duro`)
-            }else if (genero == '3') {
-                frase.innerHTML=(`Os ouvintes de heavy metal são tipos criativos gentis que sentem-se em paz consigo mesmos.`)
-            }else if (genero == '4') {
-                frase.innerHTML=(`São pessoas criativas, extrovertidas, gentis, têm boa auto-estima e sentem-se à vontade com elas mesmas.`)
-            }else if (genero == '5') {
-                frase.innerHTML=(`Os fãs de música sertaneja foram classificados como pessoas trabalhadoras e tímidas`)
-            }else if (genero == '6') {
-                frase.innerHTML=(`Os fãs do jazz são criativos e têm boa auto-estima`)
-            }else if (genero == '7') {
-                frase.innerHTML=(`Os fãs do rap são rebeldes e extrovertidas`)
+                frase.innerHTML = (`Os amantes do pop são pessoas que trabalham duro`)
+            } else if (genero == '3') {
+                frase.innerHTML = (`Os ouvintes de heavy metal são tipos criativos gentis que sentem-se em paz consigo mesmos.`)
+            } else if (genero == '4') {
+                frase.innerHTML = (`São pessoas criativas, extrovertidas, gentis, têm boa auto-estima e sentem-se à vontade com elas mesmas.`)
+            } else if (genero == '5') {
+                frase.innerHTML = (`Os fãs de música sertaneja foram classificados como pessoas trabalhadoras e tímidas`)
+            } else if (genero == '6') {
+                frase.innerHTML = (`Os fãs do jazz são criativos e têm boa auto-estima`)
+            } else if (genero == '7') {
+                frase.innerHTML = (`Os fãs do rap são rebeldes e extrovertidas`)
             }
         }
 

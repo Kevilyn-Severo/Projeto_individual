@@ -1,186 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
-    <link rel="stylesheet" href="estilo.css">
-    <script src="./js/funcoes.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+  <link rel="stylesheet" href="estilo.css">
+  <script src="./js/funcoes.js"></script>
 </head>
+
 <body>
-    
-    <div class="barra">
-        <div class="logo">   <a href="index.html"><img src="img/SL_123119_26540_39.jpg" width="100" height="50"></a>  </div>
-        <div class="menu">
-            <ul class="lista">
-                <li>Música</li>
-                <li>Benefícios</li>
-                <li>Curiosidades</li>
-                <li>Gosto musical</li>
-            </ul>
-        </div>
-    
-        <div class="bnt">
-            <button class="clique" > <a href="login.html" id="cd">Entrar</a>  </button>
-            <button class="clique"> <a href="cadastro.html" id="cd">Cadastro</a> </button>
-        </div>
+
+  <div class="barra">
+    <div class="logo"> <a href="index.html"><img src="img/SL_123119_26540_39.jpg" width="100" height="50"></a> </div>
+    <div class="menu">
+      <ul class="lista">
+        <li>Música</li>
+        <li>Benefícios</li>
+        <li>Curiosidades</li>
+        <li>Gosto musical</li>
+      </ul>
     </div>
 
-    <div class="formulario">
-        <div class="infor">
-            <h1>Fomulário sobre música</h1>
-            <h3>Com este formulário você pode falar sobre os seus interesses musicais</h3>
-        </div>
-        <br>
-        <div class="infor">
-            <h4>Costuma ouvir música?</h4>
-            <input type="text" id="ouvir_input" placeholder="Sua resposta">
-        </div>
-<br>
+    <div class="bnt">
+      <button class="clique"> <a href="login.html" id="cd">Entrar</a> </button>
+      <button class="clique"> <a href="cadastro.html" id="cd">Cadastro</a> </button>
+    </div>
+  </div>
 
-        <div class="infor">
-            <h4>Se sim,com qual frequêcia?</h4>
-            <input type="text"  id="frequencia_input" placeholder="Sua resposta">
-        </div>
-<br>
+  <div class="formulario">
+    <div class="receber">
+      <span>Olá,</span><br>
+      <span id="nomeUsuario"></span>
+    </div>
+    <div class="infor">
+      <h1>Fomulário sobre música</h1>
+      <h3>Com este formulário você pode falar sobre os seus interesses musicais</h3>
+    </div>
+    <br>
+    <div class="infor">
+      <h4>Costuma ouvir música?</h4>
+      <input type="text" id="ouvir_input" placeholder="Sua resposta">
+    </div>
+    <br>
 
-        <div class="infor">
-            <h4>Que tipo de música você gosta?</h4>
-            <select  id="tipo_select">
-              <option value="">Seleciona</option>
-              <option value="1">Sertanejo</option>
-              <option value="2">Rock</option>
-              <option value="3">Reggaeton</option>
+    <div class="infor">
+      <h4>Se sim,com qual frequêcia?</h4>
+      <input type="text" id="frequencia_input" placeholder="Sua resposta">
+    </div>
+    <br>
 
-            </select>
-        </div>
-<br>
-        <div class="infor">
-            <h4>Quantas horas você passa ouvindo música?</h4>
-            <input type="text"  id="hora_input" placeholder="Sua resposta">
-        </div>
-<br>
-        <button onclick="salvar()" id="botao">Enviar</button>
-        <div id="mensagem" ></div> 
+    <div class="infor">
+      <h4>Que tipo de música você gosta?</h4>
+      <select id="tipo_select">
+        <option value="">Seleciona</option>
+        <option value="1">Sertanejo</option>
+        <option value="2">Rock</option>
+        <option value="3">Reggaeton</option>
+
+      </select>
+    </div>
+    <br>
+    <div class="infor">
+      <h4>Quantas horas você passa ouvindo música?</h4>
+      <input type="text" id="hora_input" placeholder="Sua resposta">
+    </div>
+    <br>
+    <button onclick="salvar()" id="botao">Enviar</button>
+    <div id="mensagem"></div>
+  </div>
+
+  <div class="espaço"> </div>
+  <div class="footer">
+    <h3>Feito por uma aluna SPtech</h3>
+    <div class="redes">
+      <img src="img/instagram.png" style="width: 50px;
+        height: 50px;">
+      <img src="img/facebook.png" style="width: 50px;
+        height: 50px;">
+      <img src="img/twitter.png" style="width: 50px;
+        height: 50px;">
     </div>
 
-       <div class="espaço"> </div>
-    <div class="footer">
-        <h3>Feito por uma aluna SPtech</h3>
-      <div class="redes">
-        <img src="img/instagram.png" style="width: 50px;
-        height: 50px;">
-        <img src="img/facebook.png" style="width: 50px;
-        height: 50px;">
-        <img src="img/twitter.png" style="width: 50px;
-        height: 50px;">
-      </div>  
+  </div>
 
-    </div>
+  <script>
 
-    <script>
-        function verificar(){
-            var ouvir= ouvir_input.value
-            var frequencia =frequencia_input.value
-            var tipo= tipo_select.value
-            var hora= hora_input.value
+    function salvar() {
+      aguardar();
+      nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO
+      //Recupere o valor da nova input pelo nome do id
+      // Agora vá para o método fetch logo abaixo
+      var ouvirVar = ouvir_input.value;
+      var frequenciaVar = frequencia_input.value;
+      var tipoVar = tipo_select.value;
+      var horaVar = hora_input.value;
+      //var confirmacaoSenhaVar = confirmacao_senha_input.value;
+      var usuarioVar = localStorage.setItem("usuario", "idUsuario");
 
-            if (ouvir== "" || frequencia== "" || tipo == "" || hora == "") {
-            mensagem.innerHTML = "preencha todos os campos!"
-        }
-        }
+      if (ouvirVar == "" || frequenciaVar == "" || tipoVar == "" || horaVar == "") {
+        //cardErro.style.display = "block"
+        mensagem.innerHTML = "(preencha todos os campos!)";
 
-        function salvar() {
-          aguardar();
-      
-          //Recupere o valor da nova input pelo nome do id
-          // Agora vá para o método fetch logo abaixo
-          var ouvirVar= ouvir_input.value;
-          var frequenciaVar =frequencia_input.value;
-          var tipoVar= tipo_input.value;
-          var horaVar= hora_input.value;
-          //var confirmacaoSenhaVar = confirmacao_senha_input.value;
-          
-      
-          if (ouvirVar == "" || frequenciaVar == "" || tipoVar == "" || horaVar == "") {
-            //cardErro.style.display = "block"
-            mensagem.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-      
-            finalizarAguardar();
-            return false;
-          }
-          else {
-            setInterval(sumirMensagem, 5000)
-          }
-      
-          localStorage.setItem("formulario", "horasOuvindo");
+        finalizarAguardar();
+        return false;
+      }
+      else {
+        setInterval(sumirMensagem, 5000)
+      }
 
-          // Enviando o valor da nova input
-          fetch("/usuarios/salvar", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              // crie um atributo que recebe o valor recuperado aqui
-              // Agora vá para o arquivo routes/usuario.js
-              ouvirServer: ouvirVar,
-              frequenciaServer : frequenciaVar,
-              tipoServer: tipoVar,
-              horaServer: horaVar,
-            })
-          }).then(function (resposta) {
-      
-            console.log("resposta: ", resposta);
-      
-            if (resposta.ok) {
-              //cardErro.style.display = "block";
-      
-              mensagem.innerHTML = "Salvo com sucesso! Redirecionando para tela da conta...";
-      
-              setTimeout(() => { if (tipoServer == '1'){
-                window.location = "sertanejo.html";
-                } else if(tipoServer == '2'){
-                 window.location  = "rock.html";
-                } else{
-                 window.location  = "reggaeton.html";
-             } }, "2000")
-      
-              limparFormulario();
-              finalizarAguardar();
+      localStorage.setItem("formulario", "horasOuvindo");
+
+      // Enviando o valor da nova input
+      fetch("/usuarios/salvar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          ouvirServer: ouvirVar,
+          frequenciaServer: frequenciaVar,
+          tipoServer: tipoVar,
+          horaServer: horaVar,
+          usuarioServer: usuarioVar,
+        })
+      }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          //cardErro.style.display = "block";
+
+          alert ("Salvo com sucesso!");
+
+          setTimeout(() => {
+            if (tipoServer == '1') {
+              window.location = "sertanejo.html";
+            } else if (tipoServer == '2') {
+              window.location = "rock.html";
             } else {
-              throw ("Houve um erro ao tentar salvar o formulário!");
+              window.location = "reggaeton.html";
             }
-          }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-          });
-      
-          return false;
+          }, "2000")
+
+        
+          finalizarAguardar();
+        } else {
+          throw ("Houve um erro ao tentar salvar o formulário!");
         }
-      
-        function sumirMensagem() {
-          //cardErro.style.display = "none"
-        }
+      }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
 
+      return false;
+    }
 
+    function sumirMensagem() {
+      //cardErro.style.display = "none"
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </script>
+  </script>

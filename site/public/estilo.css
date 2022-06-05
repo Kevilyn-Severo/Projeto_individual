@@ -213,6 +213,13 @@ h3{
 
 }
 
+.mensagem{
+    height: 47px;
+    margin-top: 16px;
+    color: white;
+    font-size: 18px;
+}
+
 .temaLg{
     font-size: 30px;
     font-weight: bold;
@@ -321,13 +328,10 @@ h3{
     margin-left: 20px;
 }
 
-#cantor_td{
+#td{
     color: navajowhite;
 }
 
-#music_td{
-    color: navajowhite;
-}
 
 /*Rock*/
 .rock{
@@ -457,6 +461,12 @@ h3{
     background-color: gray;
 }
 
+.receber{
+    width: 255px;
+    height: 46px;
+    font-size: 27px;
+}
+
 /*Gosto Musical*/
 
 .gosto{
@@ -532,7 +542,7 @@ height: 50px;
 }
 
 
-.forma{
+.forma1{
     height: 28px;
     font-size: 20px;
     width: 203px;
