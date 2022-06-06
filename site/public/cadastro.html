@@ -42,7 +42,7 @@
                 <input id="senha_input" type="password" placeholder="Senha">
                 <button onclick="cadastrar()" class="btc"  id="bt">Cadastrar </button>
             </div>
-            <div id="mensagem" > gjdjshs  </div>
+            <div id="mensagem" >   </div>
         </div>
     
     </div>
@@ -71,9 +71,10 @@
           var telefoneVar = tele_input.value;
           var emailVar = email_input.value;
           var senhaVar = senha_input.value;
+          var avaliacaoVar = localStorage.setItem("usuario", "fkAvaliacao");
           //var confirmacaoSenhaVar = confirmacao_senha_input.value;
           
-          if( emailVar.indexOf("@") -1 == false && emailVar.endsWith(".com") == flase) {
+          if( emailVar.indexOf("@") -1 == false && emailVar.endsWith(".com") == false) {
             mensagem.innerHTML= "Email inválido!"
           } else if (nomeVar == "" || telefoneVar == "" || emailVar == "" || senhaVar == "" ) {
             //cardErro.style.display = "block"
@@ -99,6 +100,7 @@
               telefoneServer: telefoneVar,
               emailServer: emailVar,
               senhaServer: senhaVar,
+              avaliacaoServer: avaliacaoVar
             })
           }).then(function (resposta) {
       

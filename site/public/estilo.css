@@ -213,11 +213,11 @@ h3{
 
 }
 
-.mensagem{
-    height: 47px;
-    margin-top: 16px;
+#mensagem{
     color: white;
-    font-size: 18px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center
 }
 
 .temaLg{
