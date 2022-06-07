@@ -31,8 +31,7 @@
 
   <div class="formulario">
     <div class="receber">
-      <span>Olá,</span><br>
-      <span id="nomeUsuario"></span>
+    
     </div>
     <div class="infor">
       <h1>Fomulário sobre música</h1>
@@ -89,7 +88,7 @@
 
     function salvar() {
       aguardar();
-      nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO
+     
       //Recupere o valor da nova input pelo nome do id
       // Agora vá para o método fetch logo abaixo
       var ouvirVar = ouvir_input.value;
@@ -97,7 +96,7 @@
       var tipoVar = tipo_select.value;
       var horaVar = hora_input.value;
       //var confirmacaoSenhaVar = confirmacao_senha_input.value;
-      var usuarioVar = localStorage.setItem("idUsuario");
+      
 
       if (ouvirVar == "" || frequenciaVar == "" || tipoVar == "" || horaVar == "") {
         //cardErro.style.display = "block"
@@ -108,36 +107,35 @@
       }
       else {
         setInterval(sumirMensagem, 5000)
-      }
+        
+        
+        
+        // Enviando o valor da nova input
+        fetch("/usuarios/salvar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            ouvirServer: ouvirVar,
+            frequenciaServer: frequenciaVar,
+            tipoServer: tipoVar,
+            horaServer: horaVar,
+            
+          })
+        }).then(function (resposta) {
 
-      localStorage.setItem( "horasOuvindo:", "tipoVar");
-
-      // Enviando o valor da nova input
-      fetch("/usuarios/salvar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          // crie um atributo que recebe o valor recuperado aqui
-          // Agora vá para o arquivo routes/usuario.js
-          ouvirServer: ouvirVar,
-          frequenciaServer: frequenciaVar,
-          tipoServer: tipoVar,
-          horaServer: horaVar,
-          usuarioServer: usuarioVar,
-        })
-      }).then(function (resposta) {
-
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          //cardErro.style.display = "block";
-
-          alert ("Salvo com sucesso!");
-
-          setTimeout(() => {
-            if (tipoServer == '1') {
+          console.log("resposta: ", resposta);
+          
+          if (resposta.ok) {
+            //cardErro.style.display = "block";
+            
+            alert ("Salvo com sucesso!");
+            
+            setTimeout(() => {
+              if (tipoServer == '1') {
               window.location = "sertanejo.html";
             } else if (tipoServer == '2') {
               window.location = "rock.html";
@@ -145,8 +143,8 @@
               window.location = "reggaeton.html";
             }
           }, "2000")
-
-        
+          
+          
           finalizarAguardar();
         } else {
           throw ("Houve um erro ao tentar salvar o formulário!");
@@ -155,12 +153,13 @@
         console.log(`#ERRO: ${resposta}`);
         finalizarAguardar();
       });
-
+      
       return false;
     }
-
+    
     function sumirMensagem() {
       //cardErro.style.display = "none"
     }
-
-  </script>
+    
+  }
+    </script>

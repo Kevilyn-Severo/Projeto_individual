@@ -24,8 +24,5 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
-router.get("/dadosformulario/:idSession", function (req, res) {
-    usuarioController.obterdadosformulario(req, res);
-})
 
 module.exports = router;
