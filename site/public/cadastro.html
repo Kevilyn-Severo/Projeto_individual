@@ -71,11 +71,10 @@
           var telefoneVar = tele_input.value;
           var emailVar = email_input.value;
           var senhaVar = senha_input.value;
-          var avaliacaoVar = localStorage.setItem("usuario", "fkAvaliacao");
           //var confirmacaoSenhaVar = confirmacao_senha_input.value;
           
           if( emailVar.indexOf("@") -1 == false && emailVar.endsWith(".com") == false) {
-            mensagem.innerHTML= "Email inválido!"
+            mensagem.innerHTML= ("Email inválido!")
           } else if (nomeVar == "" || telefoneVar == "" || emailVar == "" || senhaVar == "" ) {
             //cardErro.style.display = "block"
             mensagem.innerHTML = "(Mensagem de erro para todos os campos em branco)";
@@ -100,7 +99,7 @@
               telefoneServer: telefoneVar,
               emailServer: emailVar,
               senhaServer: senhaVar,
-              avaliacaoServer: avaliacaoVar
+            
             })
           }).then(function (resposta) {
       

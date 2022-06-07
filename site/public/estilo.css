@@ -335,7 +335,7 @@ h3{
 
 /*Rock*/
 .rock{
-    height:  1512px;
+    height:  1705px;
 
     width: 1369px;
     background-image: url(img/RockN\'Roll\ &\ Art\ \(1\).jpg);
@@ -384,12 +384,14 @@ h3{
 
 /*Reggaeton*/
 .reggeaton{
-    height:  1105px;
+    height:  1337px;
     width: 1369px;
     background-image: url(img/Quarto\ da\ parede\ de\ tijolo\ da\ luz\ de\ néon\ _\ Vetor\ Premium.jfif);
     background-size: cover;
     font-family: cursive;
     color: black;
+    display: flex;
+    flex-direction: column;
 }
 
 .america{
@@ -563,4 +565,39 @@ height: 50px;
 .geral button{
     font-weight: bold;
     width: 104px;
+}
+
+
+/*Configurações*/
+.chegada{
+
+    height: 62px;
+    font-size: 22px;
+    font-weight: bold;
+    width: 500px;
+}
+
+.recepção{
+    
+    height: 158px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.acesso{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.acesso button{
+    font-size: 15px;
+    width: 116px;
+}
+
+#ser{
+    display: flex;
+    align-items: center;
+    height: 65px;
 }

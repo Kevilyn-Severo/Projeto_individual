@@ -31,13 +31,22 @@
         </div>
 
         <div class="bnt">
-            <button class="clique"> <a href="login.html" id="cd">Entrar</a> </button>
-            <button class="clique"> <a href="cadastro.html" id="cd">Cadastro</a> </button>
+            <button class="clique"> <a href="login.html" id="cd">Sair</a> </button>
         </div>
     </div>
 
     <div class="corpo">
         <div class="reggeaton">
+           <div class="recepção">
+            <div class="chegada">
+                <h4>Olá,</h4>
+            </div>
+            <div class="acesso">
+                <h4>Total de curtidas: <span id="curti_span">  </span></h4>
+                <button onclick="aumentar(regg)">Curtir</button>
+            </div>
+           </div>
+            
             <div class="america">
                 <h1>REGGAETON </h1>
                 <h3>CONHEÇA MAIS SOBRE ESSE RITMO MUSICAL</h3>
@@ -205,7 +214,9 @@
     }
 
 
-
+ function  aumentar(regg){
+    var curtir = curti_span.value
+ }
 
 
 
