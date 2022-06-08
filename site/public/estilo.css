@@ -601,3 +601,16 @@ height: 50px;
     align-items: center;
     height: 65px;
 }
+
+.estilo{
+    height: 570px;
+width: 1345px;
+background-image: url(img/guitar-g677805776_1920.jpg);
+background-size: cover;
+border: 2px solid gray;
+font-size: 20px;
+display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}

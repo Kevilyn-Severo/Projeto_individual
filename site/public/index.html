@@ -8,6 +8,8 @@
     <title>Página Inicial</title>
     <link rel="stylesheet" href="estilo.css">
     <script src="./js/funcoes.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -155,6 +157,20 @@
 
     </div>
 
+    <div class="estilo">
+        <h1>Gráfico de gêneros mais ouvidos</h1>
+        <h4>Os dados são de um levantamento  com base em dados do Spotify mostram que teve 4.305.964.634 reproduções totais na plataforma</h4>
+
+        <div>
+            <canvas id="myChart" style="position: relative; height:50vh; width:90vw "></canvas>
+          </div>
+
+
+
+
+
+</div>
+
     <div class="footer">
         <h3>Feito por uma aluna SPtech</h3>
         <div class="redes">
@@ -170,5 +186,38 @@
 
 
 </body>
+
+<script>
+    const labels = [
+      'Sertanejo',
+      'Rock',
+      'Reggaeton',
+      'Outros',
+      
+    ];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'Os estilos musicais',
+        color: '#000000',
+        backgroundColor: 'rgb(255,222,173)',
+        data: [32, 7, 10, 51],
+      }]
+    };
+  
+    const config = {
+      type: 'bar',
+      data: data,
+      options: {}
+    };
+  </script>
+
+<script>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+  </script>
 
 </html>
