@@ -85,16 +85,17 @@
   </div>
 
   <script>
-
+     
     function salvar() {
       aguardar();
-     
+      sessionStorage.HORA_FORMULARIO = json.hora_input.value
       //Recupere o valor da nova input pelo nome do id
       // Agora vá para o método fetch logo abaixo
       var ouvirVar = ouvir_input.value;
       var frequenciaVar = frequencia_input.value;
       var tipoVar = tipo_select.value;
       var horaVar = hora_input.value;
+      localStorage.setItem('Formulario', 'horaVar');
       //var confirmacaoSenhaVar = confirmacao_senha_input.value;
       
 
@@ -108,7 +109,7 @@
       else {
         setInterval(sumirMensagem, 5000)
         
-        
+       
         
         // Enviando o valor da nova input
         fetch("/usuarios/salvar", {
@@ -116,6 +117,7 @@
           headers: {
             "Content-Type": "application/json"
           },
+          
           body: JSON.stringify({
             // crie um atributo que recebe o valor recuperado aqui
             // Agora vá para o arquivo routes/usuario.js
@@ -123,7 +125,8 @@
             frequenciaServer: frequenciaVar,
             tipoServer: tipoVar,
             horaServer: horaVar,
-            
+            id: sessionStorage.ID_USUARIO,
+           
           })
         }).then(function (resposta) {
 
@@ -132,12 +135,13 @@
           if (resposta.ok) {
             //cardErro.style.display = "block";
             
+            
             alert ("Salvo com sucesso!");
             
             setTimeout(() => {
-              if (tipoServer == '1') {
+              if (tipoVar == '1') {
               window.location = "sertanejo.html";
-            } else if (tipoServer == '2') {
+            } else if (tipoVar == '2') {
               window.location = "rock.html";
             } else {
               window.location = "reggaeton.html";

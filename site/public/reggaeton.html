@@ -39,7 +39,11 @@
         <div class="reggeaton">
            <div class="recepção">
             <div class="chegada">
-                <h4>Olá,</h4>
+                <h4> 
+                    <span id="nome"> </span>
+                    
+                </h4>
+
             </div>
            </div>
             
@@ -168,6 +172,9 @@
 
 
 <script>
+     n = sessionStorage.HORA_FORMULARIO 
+     var total = (n * 100)/24
+     nome.innerHTML=`Olá, ${sessionStorage.NOME_USUARIO}, de acordo com a resposta do formulário, você gasta ${total} % do seu dia escutando musica `
     var lista_de_cantor = []
     var lista_de_musica = []
     function memorizar() {
@@ -208,14 +215,6 @@
             alert(`Chegou no limite!! Já foram adicionadas as 5 músicas `)
         }
     }
-
-
- function  aumentar(regg){
-    var curtir = curti_span.value
- }
-
-
-
 
 
 </script>

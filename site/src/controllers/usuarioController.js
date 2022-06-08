@@ -103,7 +103,7 @@ function salvar(req, res) {
     var frequencia = req.body.frequenciaServer;
     var tipo = req.body.tipoServer;
     var hora = req.body.horaServer;
-   
+   var id= req.body.id;
 
     // Faça as validações dos valores
     if (ouvir == undefined) {
@@ -117,7 +117,7 @@ function salvar(req, res) {
     } else{
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.salvar(ouvir, frequencia, tipo, hora)
+        usuarioModel.salvar(ouvir, frequencia, tipo, hora, id)
             .then(
                 function (resultado) {
                     res.json(resultado);
