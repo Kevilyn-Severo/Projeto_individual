@@ -88,14 +88,13 @@
      
     function salvar() {
       aguardar();
-      sessionStorage.HORA_FORMULARIO = json.hora_input.value
       //Recupere o valor da nova input pelo nome do id
       // Agora vá para o método fetch logo abaixo
       var ouvirVar = ouvir_input.value;
       var frequenciaVar = frequencia_input.value;
       var tipoVar = tipo_select.value;
       var horaVar = hora_input.value;
-      localStorage.setItem('Formulario', 'horaVar');
+      localStorage.setItem('Formulario', hora_input.value);
       //var confirmacaoSenhaVar = confirmacao_senha_input.value;
       
 

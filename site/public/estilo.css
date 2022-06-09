@@ -1,5 +1,6 @@
 body {
     margin: 0px;
+
 }
 .barra {
     background-color: black;
@@ -189,10 +190,11 @@ align-items: flex-end;
     align-items: center;
 }
 
-h3{
+.footer h3{
     display: flex;
     align-items: center;
     margin: auto;
+    margin-left: 580px;
 }
 
 /*Login*/
@@ -340,10 +342,10 @@ h3{
     width: 1369px;
     background-image: url(img/RockN\'Roll\ &\ Art\ \(1\).jpg);
     background-size: cover;
-    font-weight: 600;
+    font-weight: bold;
     color: lightyellow;
     font-family: cursive;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .rock h1{
@@ -605,7 +607,7 @@ height: 50px;
 .estilo{
     height: 570px;
 width: 1345px;
-background-image: url(img/guitar-g677805776_1920.jpg);
+background-image: url(img/hands-holding-music-instruments.jpg);
 background-size: cover;
 border: 2px solid gray;
 font-size: 20px;

@@ -49,7 +49,7 @@
             
             <div class="america">
                 <h1>REGGAETON </h1>
-                <h3>CONHEÇA MAIS SOBRE ESSE RITMO MUSICAL</h3>
+                <h3 style="margin-inline: auto;">CONHEÇA MAIS SOBRE ESSE RITMO MUSICAL</h3>
             </div>
 
             <div class="latina">
@@ -172,9 +172,10 @@
 
 
 <script>
-     n = sessionStorage.HORA_FORMULARIO 
+     var n = localStorage.getItem("Formulario"); 
+    
      var total = (n * 100)/24
-     nome.innerHTML=`Olá, ${sessionStorage.NOME_USUARIO}, de acordo com a resposta do formulário, você gasta ${total} % do seu dia escutando musica `
+     nome.innerHTML=`Olá, ${sessionStorage.NOME_USUARIO}, de acordo com a resposta do formulário, você gasta ${(total).toFixed(2)} % do seu dia escutando música `
     var lista_de_cantor = []
     var lista_de_musica = []
     function memorizar() {
